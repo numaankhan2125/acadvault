@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Vault - Semester Model & Previous Papers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Premium Loader Splash Screen -->
+    <div class="loader-wrapper" id="loaderWrapper">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logoGradLoader)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="url(#logoGradLoader)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="url(#logoGradLoader)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradLoader" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#a855f7"/>
+                            <stop offset="1" stop-color="#3b82f6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1 class="loader-title">AcadVault</h1>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Background blur glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#a855f7"/>
+                                <stop offset="1" stop-color="#3b82f6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>AcadVault</h2>
+            </div>
+            
+            <nav class="sem-nav">
+                <h3>SEMESTERS</h3>
+                <ul id="semList">
+                    <!-- Nav items for semesters 1-8 -->
+                    <li class="nav-item active" data-sem="1">
+                        <span class="nav-icon">Ⅰ</span>
+                        <span class="nav-text">Semester 1</span>
+                    </li>
+                    <li class="nav-item" data-sem="2">
+                        <span class="nav-icon">Ⅱ</span>
+                        <span class="nav-text">Semester 2</span>
+                    </li>
+                    <li class="nav-item" data-sem="3">
+                        <span class="nav-icon">Ⅲ</span>
+                        <span class="nav-text">Semester 3</span>
+                    </li>
+                    <li class="nav-item" data-sem="4">
+                        <span class="nav-icon">Ⅳ</span>
+                        <span class="nav-text">Semester 4</span>
+                    </li>
+                    <li class="nav-item" data-sem="5">
+                        <span class="nav-icon">Ⅴ</span>
+                        <span class="nav-text">Semester 5</span>
+                    </li>
+                    <li class="nav-item" data-sem="6">
+                        <span class="nav-icon">Ⅵ</span>
+                        <span class="nav-text">Semester 6</span>
+                    </li>
+                    <li class="nav-item" data-sem="7">
+                        <span class="nav-icon">Ⅶ</span>
+                        <span class="nav-text">Semester 7</span>
+                    </li>
+                    <li class="nav-item" data-sem="8">
+                        <span class="nav-icon">Ⅷ</span>
+                        <span class="nav-text">Semester 8</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer-group">
+                <!-- Admin Lock/Unlock Switch -->
+                <div class="admin-control-panel">
+                    <button class="btn btn-secondary btn-admin-toggle" id="adminLockBtn" title="Toggle Admin Mode">
+                        <svg class="lock-icon" id="adminLockIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span id="adminLockText">Admin Locked</span>
+                    </button>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <p>BVCITS UG Portal</p>
+                    <span class="version">v2.0.0</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header section with search & quick controls -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search subjects, codes, or paper names...">
+                </div>
+
+                <div class="actions">
+                    <!-- Visible only in Admin Mode -->
+                    <button class="btn btn-primary admin-only" id="openAddModalBtn" style="display: none;">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Custom Paper
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Body -->
+            <section class="dashboard-body">
+                <!-- Branch Selector Pills -->
+                <div class="branch-selector-container">
+                    <h3>SELECT BRANCH</h3>
+                    <div class="branch-pills" id="branchPills">
+                        <!-- Populated by JS, e.g. CSE, ECE, EEE, CIVIL... -->
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div>
+                        <h1 id="activeSemTitle">Semester 1 Model Papers</h1>
+                        <p class="subtitle" id="activeSemSubtitle">Access, view, and download standard curriculum papers.</p>
+                    </div>
+                    <div class="stats-badge">
+                        <span class="stats-value" id="statsCount">0</span>
+                        <span class="stats-label">Subjects</span>
+                    </div>
+                </div>
+
+                <!-- Grid view for Subjects -->
+                <div class="subjects-grid" id="subjectsGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Admin Password Prompt Modal -->
+    <div class="modal-overlay" id="adminPasswordModal">
+        <div class="modal auth-modal">
+            <div class="modal-header">
+                <h2>Unlock Admin Mode</h2>
+                <button class="close-btn" id="closeAuthModalBtn">&times;</button>
+            </div>
+            <form id="adminPasswordForm" class="modal-body">
+                <div class="form-group">
+                    <label for="adminPasswordInput">Admin Password</label>
+                    <input type="password" id="adminPasswordInput" placeholder="Enter admin passcode" required autofocus>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelAuthModalBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Unlock</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Custom Paper Modal -->
+    <div class="modal-overlay" id="addPaperModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Add Custom Model/Previous Paper</h2>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="addPaperForm" class="modal-body">
+                <div class="form-group">
+                    <label for="paperBranchSelect">Branch / Course</label>
+                    <select id="paperBranchSelect" required>
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperSemSelect">Semester</label>
+                    <select id="paperSemSelect" required>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperSubjectInput">Subject Name</label>
+                    <input type="text" id="paperSubjectInput" placeholder="e.g. Data Structures" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperSubjectCodeInput">Subject Code (Optional)</label>
+                    <input type="text" id="paperSubjectCodeInput" placeholder="e.g. CS-301">
+                </div>
+
+                <div class="form-group">
+                    <label for="paperTitleInput">Paper Name</label>
+                    <input type="text" id="paperTitleInput" placeholder="e.g. Model Question Paper 2025" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperTypeSelect">Paper Type</label>
+                    <select id="paperTypeSelect" required>
+                        <option value="Model Paper">Model Paper</option>
+                        <option value="Previous Year Paper">Previous Year Paper</option>
+                        <option value="Notes / Study Material">Notes / Study Material</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperUrlInput">File Link / URL</label>
+                    <input type="text" id="paperUrlInput" placeholder="e.g. papers/sem1/math_model_2025.pdf" required>
+                    <p class="file-hint">Place your PDFs in your papers/ directory, or use online links/Google Drive sharing URLs.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelModalBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Paper</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification system -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="database.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
