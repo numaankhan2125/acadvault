@@ -617,12 +617,19 @@ function protectPage() {
 // Run init on load
 window.addEventListener("DOMContentLoaded", init);
 
-// Fade out splash loader after resources load
+// Fade out splash loader after resources load & register service worker
 window.addEventListener("load", () => {
     const loader = document.getElementById("loaderWrapper");
     if (loader) {
         setTimeout(() => {
             loader.classList.add("fade-out");
         }, 1200); // 1.2 seconds elegant loading window
+    }
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('Service Worker registered successfully!', reg))
+            .catch(err => console.log('Service Worker registration failed:', err));
     }
 });
