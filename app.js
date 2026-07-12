@@ -7,9 +7,6 @@ let isAdminMode = false;
 // Custom additions stored in LocalStorage
 let customDatabase = {};
 
-// Obfuscated Admin Passcode Hash (base64 of numaanburri@252106)
-const ADMIN_HASH = "bnVtYWFuYnVycmlAMjUyMTA2";
-
 // Initialize Application
 function init() {
     protectPage();
